@@ -78,11 +78,11 @@ button {
     background-color: rgba(120, 120, 120, 0.25);
 }
 
-.num, #dot {
+.num, #dotBtn {
     background-color: rgba(60, 60, 60);
 }
 
-.num:hover, #dot:hover {
+.num:hover, #dotBtn:hover {
     background-color: rgba(60, 60, 60, 0.5);
 }
 
