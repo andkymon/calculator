@@ -11,30 +11,41 @@ mulBtn = document.querySelector("#mulBtn");
 divBtn = document.querySelector("#divBtn");
 eqBtn = document.querySelector("#eqBtn");
 
+function appendToDisplay(elem) {
+    display.textContent += elem.textContent;
+}
+
+//Number Keys 
 for (const number of numberkeys) {
     number.addEventListener("click", () => {
         if (display.textContent.length >= 10) {
             return;
         } else {
-            display.textContent += number.textContent;
-            console.log(display.textContent.length);
+            appendToDisplay(number);
         }
     });
 }
-
-clear.addEventListener("click", () => display.textContent = "");
+//Clear Button
+clear.addEventListener("click", () => display.textContent = ""); 
+//Backspace Button
 backspace.addEventListener("click", () => {
     display.textContent = display.textContent.slice(0, display.textContent.length - 1);
 });
-
+//Decimal Button
 dot.addEventListener("click", function enabledot() {
     if (display.textContent.includes(".")) {
         dot.removeEventListener("click", enabledot);
     } else {
-        display.textContent += ".";
-        console.log(display.textContent.length);
+        appendToDisplay(dot);
     }
 });
 
-//Backspace
-//One . only
+
+
+//add
+//subtract
+//multiply
+//divide
+//3 variables
+//operate
+
