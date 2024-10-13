@@ -1,9 +1,9 @@
 display = document.querySelector("#display");
-numberkeys = document.querySelectorAll(".num");
+numberKeys = document.querySelectorAll(".num");
 
 clear = document.querySelector("#clear");
 backspace = document.querySelector("#backspace");
-dot = document.querySelector("#dot");
+dotBtn = document.querySelector("#dotBtn");
 
 operations = document.querySelectorAll(".operation");
 equal = document.querySelector("#eqBtn");
@@ -16,6 +16,18 @@ function appendToDisplay(elem) {
 function clearDisplay() {
     display.textContent = "";
 }
+//Function to reset operation button style to default
+function resetOperationBtnStyle() {
+    //Reset flag
+    operatorClicked = false; 
+            //Reset operation button style
+            for (const operation of operations) {
+                operation.style.color = "";
+                operation.style.backgroundColor = "";
+            }
+}
+
+
 //Clear Button
 clear.addEventListener("click", clearDisplay); 
 //Backspace Button
@@ -23,11 +35,11 @@ backspace.addEventListener("click", () => {
     display.textContent = display.textContent.slice(0, display.textContent.length - 1);
 });
 //Decimal Button
-dot.addEventListener("click", function enabledot() {
+dotBtn.addEventListener("click", function enabledot() {
     if (display.textContent.includes(".")) {
-        dot.removeEventListener("click", enabledot);
+        dotBtn.removeEventListener("click", enabledot);
     } else {
-        appendToDisplay(dot);
+        appendToDisplay(dotBtn);
     }
 });
 //Operations Functions
@@ -53,6 +65,16 @@ let num2;
 
 let operatorClicked;
 
+//if operator is clicked: !!
+    //turn flag on!!
+    //change style !!
+    //store display content as num1 and button content as operator !!
+
+    //if num button is clicked: !!
+        //turn flag off !!
+        //revert style !!
+        //cleardisplay !!
+
 //Operation buttons
 for (const operation of operations) {
     operation.addEventListener("click", () => {
@@ -66,19 +88,13 @@ for (const operation of operations) {
         oper = operation.textContent;
     });
 }
-
 //Number Keys 
-for (const number of numberkeys) {
+for (const number of numberKeys) {
     number.addEventListener("click", () => {
         if (display.textContent.length >= 10) {
             return;
         } else if (operatorClicked === true) { //Condition if an operator button was clicked
-            operatorClicked = false; //Reset flag
-            //Reset operation button style
-            for (const operation of operations) {
-                operation.style.color = "";
-                operation.style.backgroundColor = "";
-            }
+            resetOperationBtnStyle();
             clearDisplay();
             appendToDisplay(number);
         } else {
@@ -86,23 +102,18 @@ for (const number of numberkeys) {
         } 
     });
 }
-//if operator is clicked: !!
-    //turn flag on!!
-    //change style !!
-    //store display content as num1 and button content as operator !!
-
-    //if num button is clicked: !!
-        //turn flag off !!
-        //revert style !!
-        //cleardisplay !!
-        //if equals is clicked:
+equal.addEventListener("click", () => {
+    resetOperationBtnStyle();
+    clearDisplay();
+});
 
 //if equals is clicked:
     //turn flag off
     //revert style
     //store current display as num2
     //operate on num1 and num2
-    //stop
+    //clear display
+    //display return of operation
      
 
 //3 variables
