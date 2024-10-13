@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {   
+    display: flex;
+    flex-wrap: wrap;
+    height: 600px;
+    width: 400px;
+    background-color: gray;
+    border: 25px solid gray;
+    border-radius: 16px;
+}
