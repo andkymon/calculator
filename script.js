@@ -24,8 +24,9 @@ for (const number of numberkeys) {
 }
 
 clear.addEventListener("click", () => display.textContent = "");
+backspace.addEventListener("click", () => {
+    display.textContent = display.textContent.slice(0, display.textContent.length - 1);
+});
 
-
-//Clear display on C
 //Backspace
 //One . only
