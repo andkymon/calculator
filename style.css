@@ -54,15 +54,15 @@ button {
     margin: 5px;
 }
 
-.operation {
+.operation, #eqBtn {
     background-color: orange;
 }
 
-.operation:hover {
+.operation:hover, #eqBtn:hover {
     background-color: rgba(255, 166, 0, 0.75);
 }
 
-.operation:active {
+#eqBtn:active {
     background-color: rgba(255, 166, 0, 0.5);
 }
 

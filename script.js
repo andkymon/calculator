@@ -27,7 +27,6 @@ function resetOperationBtnStyle() {
             }
 }
 
-
 //Clear Button
 clear.addEventListener("click", clearDisplay); 
 //Backspace Button
@@ -42,6 +41,7 @@ dotBtn.addEventListener("click", function enabledot() {
         appendToDisplay(dotBtn);
     }
 });
+
 //Operations Functions
 function add(num1, num2) {
 	return num1 + num2;
@@ -104,8 +104,28 @@ for (const number of numberKeys) {
 }
 equal.addEventListener("click", () => {
     resetOperationBtnStyle();
+    num2 = display.textContent;
+    console.log(num2);
+    num1 = Operate(num1, num2, oper);
+    console.log(num1);
     clearDisplay();
+    display.textContent = num1;
 });
+
+function Operate(num1, num2, operation) {
+    switch(true) {
+        case (operation === "+"):
+            return add(num1, num2);
+        case (operation === "-"):
+            return subtract(num1, num2);
+        case (operation === "*"):
+            return multiply(num1, num2);
+        case (operation === "/"):
+            return divide(num1, num2);
+        default:
+            return num1;
+      }
+}
 
 //if equals is clicked:
     //turn flag off
