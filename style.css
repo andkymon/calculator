@@ -42,7 +42,7 @@ body {
     padding: 5%;
 }
 
-.operation, .controls, .num {
+button {
     color: white;
     display: flex;
     justify-content: center;
@@ -58,12 +58,36 @@ body {
     background-color: orange;
 }
 
+.operation:hover {
+    background-color: rgba(255, 166, 0, 0.75);
+}
+
+.operation:active {
+    background-color: rgba(255, 166, 0, 0.5);
+}
+
 .controls {
     background-color: rgb(120, 120, 120);
 }
 
+.controls:hover {
+    background-color: rgba(120, 120, 120, 0.5);
+}
+
+.controls:active {
+    background-color: rgba(120, 120, 120, 0.25);
+}
+
 .num {
-    background-color: rgb(60, 60, 60);
+    background-color: rgba(60, 60, 60);
+}
+
+.num:hover {
+    background-color: rgba(60, 60, 60, 0.5);
+}
+
+.num:active {
+    background-color: rgba(60, 60, 60, 0.25);
 }
 
 #clear {
@@ -74,3 +98,4 @@ body {
     width: 170px;
     border-radius: 40px;
 }
+
