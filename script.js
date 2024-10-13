@@ -13,9 +13,7 @@ eqBtn = document.querySelector("#eqBtn");
 for (const number of numberkeys) {
     number.addEventListener("click", function enablebtn(e) {
         if (display.textContent.length >= 10) {
-            for (const number of numberkeys) {
-                number.removeEventListener("click", enablebtn);
-            }
+            return;
         } else {
             display.textContent += number.textContent;
             console.log(display.textContent.length);
