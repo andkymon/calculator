@@ -1,6 +1,8 @@
 display = document.querySelector("#display");
-
 numberkeys = document.querySelectorAll(".num");
+
+clear = document.querySelector("#clear");
+backspace = document.querySelector("#backspace");
 
 addBtn = document.querySelector("#addBtn");
 subBtn = document.querySelector("#subBtn");
@@ -8,12 +10,9 @@ mulBtn = document.querySelector("#mulBtn");
 divBtn = document.querySelector("#divBtn");
 eqBtn = document.querySelector("#eqBtn");
 
-clear = document.querySelector("#clear");
-backspace = document.querySelector("#backspace");
-
 for (const number of numberkeys) {
     number.addEventListener("click", function enablebtn(e) {
-        if (display.textContent.length >= 11) {
+        if (display.textContent.length >= 10) {
             for (const number of numberkeys) {
                 number.removeEventListener("click", enablebtn);
             }
@@ -24,5 +23,9 @@ for (const number of numberkeys) {
     });
 }
 
+clear.addEventListener("click", () => display.textContent = "");
 
-//Number Overflow disable on 11
+
+//Clear display on C
+//Backspace
+//One . only
