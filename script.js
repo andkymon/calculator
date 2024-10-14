@@ -10,6 +10,7 @@ equal = document.querySelector("#eqBtn");
 // Variables to store numbers and operator
 let num1, num2, oper;  // First number, second number, and operation
 let operatorClicked = false;  // Flag to track if operator was clicked
+let clickEvent = new Event('click'); // Create a 'click' event to simulate a user click
 
 // FUNCTIONS
 // Append number or decimal to display with a length limit
@@ -98,9 +99,12 @@ dotBtn.addEventListener("click", () => {
 // Operation buttons
 for (const operation of operations) {
     operation.addEventListener("click", () => {
-        if (operatorClicked) {
+        if (operatorClicked) { // Only one operation is highlighted at a time
             resetOperationBtnStyle();
         };
+        if (oper) { // Execute the existing operation before setting the new one 
+            equal.dispatchEvent(clickEvent);
+        }
         operatorClicked = true; // Set operator flag
         operation.style.color = "orange"; // Highlight operator
         operation.style.backgroundColor = "white";
@@ -121,10 +125,6 @@ equal.addEventListener("click", () => {
 //If an operation exists
     //Simulate Click Equal
     //continue
-//If operatorcliucked is true
-    //reset operation button style
-    //change sign
-
 
 //Round long answers
 
