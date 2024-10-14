@@ -104,25 +104,25 @@ for (const operation of operations) {
         if (oper) { // Execute the existing operation before setting the new one 
             equal.dispatchEvent(clickEvent);
         }
-        operatorClicked = true; // Set operator flag
+        operatorClicked = true; 
         operation.style.color = "orange"; // Highlight operator
         operation.style.backgroundColor = "white";
-        num1 = display.textContent; // Store first number
-        oper = operation.textContent; // Store operator
+        num1 = display.textContent; 
+        oper = operation.textContent; 
     });
 }
 // Equal Button
 equal.addEventListener("click", () => {
     resetOperationBtnStyle();
-    num2 = display.textContent; // Store second number
-    display.textContent = Operate(num1, num2, oper); // Show result
-    num1 = num2 = oper = undefined; //Reset values
-    operatorClicked = true; // To prevent num key appending on result
+    num2 = display.textContent; 
+    let result = Operate(num1, num2, oper); 
+    if (result.toString().length > 10) { // Prevent overflow on large numbers
+        result = result.toExponential(3);
+    }
+    display.textContent = result; 
+    num1 = num2 = oper = undefined; 
+    operatorClicked = true; // Prevent result appending
 });
 
-
-//Round long answers
-//If result 
-    //Decimal: set precision length 9-floor string length then round
 
 
