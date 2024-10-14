@@ -25,8 +25,7 @@ function clearDisplay() {
 }
 // Reset the operator button styles and flag
 function resetOperationBtnStyle() {
-    // Reset flag
-    operatorClicked = false; 
+    operatorClicked = false; // Reset operator flag
         // Reset operation button style
         for (const operation of operations) {
             operation.style.color = "";
@@ -62,7 +61,7 @@ function Operate(num1, num2, operation) {
         case (operation === "/"):
             return divide(num1, num2);
         default:
-            return num2;
+            return num2; // Return second number if no operation exists
       }
     
 }
@@ -70,7 +69,7 @@ function Operate(num1, num2, operation) {
 // BUTTONS
 // Clear Button
 clear.addEventListener("click", () => {
-    num1 = num2 = oper = undefined; // Reset values
+    num1 = num2 = oper = undefined; 
     resetOperationBtnStyle();
     clearDisplay();
 }); 
@@ -118,13 +117,12 @@ equal.addEventListener("click", () => {
     num2 = display.textContent; // Store second number
     display.textContent = Operate(num1, num2, oper); // Show result
     num1 = num2 = oper = undefined; //Reset values
+    operatorClicked = true; // To prevent num key appending on result
 });
 
 
-//Multiple Operations
-//If an operation exists
-    //Simulate Click Equal
-    //continue
-
 //Round long answers
+//If result 
+    //Decimal: set precision length 9-floor string length then round
+
 
