@@ -20,11 +20,11 @@ function clearDisplay() {
 function resetOperationBtnStyle() {
     //Reset flag
     operatorClicked = false; 
-            //Reset operation button style
-            for (const operation of operations) {
-                operation.style.color = "";
-                operation.style.backgroundColor = "";
-            }
+        //Reset operation button style
+        for (const operation of operations) {
+            operation.style.color = "";
+            operation.style.backgroundColor = "";
+        }
 }
 
 //Clear Button
@@ -44,21 +44,24 @@ dotBtn.addEventListener("click", function enabledot() {
 
 //Operations Functions
 function add(num1, num2) {
+    num1 = Number(num1);
+    num2 = Number(num2);
 	return num1 + num2;
 };
-
 function subtract(num1, num2) {
 	return num1 - num2;
 };
-
 function multiply(num1, num2) {
     return num1 * num2;
 };
-
 function divide(num1, num2) {
     return num1 / num2;
 };
 
+
+
+
+//TO CLEAN
 let num1;
 let oper;
 let num2;
@@ -102,17 +105,19 @@ for (const number of numberKeys) {
         } 
     });
 }
+//Equal Button
 equal.addEventListener("click", () => {
     resetOperationBtnStyle();
     num2 = display.textContent;
-    console.log(num2);
-    num1 = Operate(num1, num2, oper);
-    console.log(num1);
-    clearDisplay();
-    display.textContent = num1;
+    display.textContent = Operate(num1, num2, oper); 
+    //Reset values
+    num1 = undefined;
+    num2 = undefined;
+    oper = undefined;
 });
 
 function Operate(num1, num2, operation) {
+    clearDisplay();
     switch(true) {
         case (operation === "+"):
             return add(num1, num2);
@@ -123,8 +128,9 @@ function Operate(num1, num2, operation) {
         case (operation === "/"):
             return divide(num1, num2);
         default:
-            return num1;
+            return num2;
       }
+    
 }
 
 //if equals is clicked:
@@ -134,8 +140,10 @@ function Operate(num1, num2, operation) {
     //operate on num1 and num2
     //clear display
     //display return of operation
-     
 
-//3 variables
-//operate
+
+//equal stops and doesnt append anymore
+//equal doesnt do anything for num1
+//result digit limit
+//multiple operations
 
