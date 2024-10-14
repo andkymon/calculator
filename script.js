@@ -12,17 +12,17 @@ let num1, num2, oper;  // First number, second number, and operation
 let operatorClicked = false;  // Flag to track if operator was clicked
 
 // FUNCTIONS
-// Function to append num or dot key content to display
+// Append number or decimal to display with a length limit
 function appendToDisplay(elem) {
     if (display.textContent.length < 10) {
         display.textContent += elem.textContent;
     }
 }
-// Function to clear display
+// Clear the display
 function clearDisplay() {
     display.textContent = "";
 }
-// Function to reset operation button style to default
+// Reset the operator button styles and flag
 function resetOperationBtnStyle() {
     // Reset flag
     operatorClicked = false; 
@@ -32,7 +32,7 @@ function resetOperationBtnStyle() {
             operation.style.backgroundColor = "";
         }
 }
-// Arithmetic Functions
+// Arithmetic operations
 function add(num1, num2) {
 	return Number(num1) + Number(num2);
 };
@@ -48,7 +48,7 @@ function divide(num1, num2) {
     }
     return Number(num1) / Number(num2);
 };
-// Function to operate on 2 numbers respective to the operation
+// Perform the selected operation between two numbers
 function Operate(num1, num2, operation) {
     clearDisplay();
     switch(true) {
@@ -68,7 +68,11 @@ function Operate(num1, num2, operation) {
 
 // BUTTONS
 // Clear Button
-clear.addEventListener("click", clearDisplay); 
+clear.addEventListener("click", () => {
+    num1 = num2 = oper = undefined; // Reset values
+    resetOperationBtnStyle();
+    clearDisplay();
+}); 
 // Backspace Button
 backspace.addEventListener("click", () => {
     display.textContent = display.textContent.slice(0, -1);
@@ -94,25 +98,30 @@ dotBtn.addEventListener("click", () => {
 // Operation buttons
 for (const operation of operations) {
     operation.addEventListener("click", () => {
-        // Set flag
-        operatorClicked = true;
-        // Set style while waiting for next click
-        operation.style.color = "orange";
+        if (operatorClicked) return;
+        operatorClicked = true; // Set operator flag
+        operation.style.color = "orange"; // Highlight operator
         operation.style.backgroundColor = "white";
-        // Save current display as num1 and clicked operation as oper
-        num1 = display.textContent;
-        oper = operation.textContent;
+        num1 = display.textContent; // Store first number
+        oper = operation.textContent; // Store operator
     });
 }
 // Equal Button
 equal.addEventListener("click", () => {
     resetOperationBtnStyle();
-    num2 = display.textContent;
-    display.textContent = Operate(num1, num2, oper); 
-    //Reset values
-    num1 = num2 = oper = undefined;
+    num2 = display.textContent; // Store second number
+    display.textContent = Operate(num1, num2, oper); // Show result
+    num1 = num2 = oper = undefined; //Reset values
 });
 
-//result digit limit
-//multiple operations
+
+//Multiple Operations
+//If an operation exists
+    //Simulate Click Equal
+    //continue
+//If operatorcliucked is true
+    //do nothing
+
+
+//Round long answers
 
