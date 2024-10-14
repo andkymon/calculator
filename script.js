@@ -98,7 +98,9 @@ dotBtn.addEventListener("click", () => {
 // Operation buttons
 for (const operation of operations) {
     operation.addEventListener("click", () => {
-        if (operatorClicked) return;
+        if (operatorClicked) {
+            resetOperationBtnStyle();
+        };
         operatorClicked = true; // Set operator flag
         operation.style.color = "orange"; // Highlight operator
         operation.style.backgroundColor = "white";
@@ -120,7 +122,8 @@ equal.addEventListener("click", () => {
     //Simulate Click Equal
     //continue
 //If operatorcliucked is true
-    //do nothing
+    //reset operation button style
+    //change sign
 
 
 //Round long answers
